@@ -3,7 +3,7 @@ import Card from '../Card'
 
 export default function Game() {
   return (
-    <div>
+    <div className='game'>
       <div>Game</div>
       <Card></Card>
     </div>
