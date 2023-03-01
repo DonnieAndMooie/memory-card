@@ -29,10 +29,43 @@
 .game{
   background-color: #C874D9;
   flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
 }
 
 .scoreboard{
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+
+.card{
+  height: 12rem;
+  border-radius: 1rem;
+  width: 12rem;
+  background-color: #580968;
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.player-name{
+  color: white;
+  font-family: sans-serif;
+  margin-bottom: 5px;
+}
+
+.card:hover{
+  outline: 3px solid white;
+  cursor: pointer;
 }
