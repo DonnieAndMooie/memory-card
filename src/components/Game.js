@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from './Card'
 import Messi from '../images/messi.jpg'
 import Alisson from '../images/alisson.jpeg'
@@ -79,11 +79,25 @@ const players = [
   },
 ]
 
+function shuffleCards(){
+  const shuffledCards = []
+  const indexUsed = []
+  while(shuffledCards.length < players.length){
+    const randomIndex = Math.floor(Math.random() * 15)
+    if (!indexUsed.includes(randomIndex)){
+      shuffledCards.push(players[randomIndex])
+      indexUsed.push(randomIndex)
+    }
+  }
+  return shuffledCards
+}
+
 export default function Game() {
+  const [cards, setCards] = useState(players)
   return (
     <div className='game'>
-      {players.map((player) => {
-        return <Card imgSrc={player.src} name={player.name}></Card>
+      {cards.map((player, i) => {
+        return <Card imgSrc={player.src} name={player.name} key={i} onClick={() => setCards(shuffleCards())}></Card>
       })}
     </div>
   )
