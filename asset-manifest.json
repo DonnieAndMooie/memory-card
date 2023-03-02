@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/memory-card/static/css/main.28e4ac08.css",
+    "main.js": "/memory-card/static/js/main.429cf58d.js",
+    "static/js/787.d6a8b40f.chunk.js": "/memory-card/static/js/787.d6a8b40f.chunk.js",
+    "static/media/modric.webp": "/memory-card/static/media/modric.e3b58c9cd873d460f1a0.webp",
+    "static/media/haaland.jpg": "/memory-card/static/media/haaland.c78f1053b9a529c61c73.jpg",
+    "static/media/vinicius.jpg_large": "/memory-card/static/media/vinicius.a6e5a322ac322a3f5591.jpg_large",
+    "static/media/salah.jpg": "/memory-card/static/media/salah.89847b984f4601351f9d.jpg",
+    "static/media/messi.jpg": "/memory-card/static/media/messi.0a2b56d3f856cd2d0732.jpg",
+    "static/media/mbappe.jpg": "/memory-card/static/media/mbappe.d56a834ddc8a7da34bcf.jpg",
+    "static/media/bellingham.jpg": "/memory-card/static/media/bellingham.dae6efc0c1087282194e.jpg",
+    "static/media/ronaldo.jpg": "/memory-card/static/media/ronaldo.dbfebdc6d356abc926bd.jpg",
+    "static/media/de-bruyne.webp": "/memory-card/static/media/de-bruyne.2b1477cf67b639dbaf0e.webp",
+    "static/media/RussoOne-Regular.ttf": "/memory-card/static/media/RussoOne-Regular.b2f5b287ccb8fd446eae.ttf",
+    "index.html": "/memory-card/index.html",
+    "main.28e4ac08.css.map": "/memory-card/static/css/main.28e4ac08.css.map",
+    "main.429cf58d.js.map": "/memory-card/static/js/main.429cf58d.js.map",
+    "787.d6a8b40f.chunk.js.map": "/memory-card/static/js/787.d6a8b40f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.28e4ac08.css",
+    "static/js/main.429cf58d.js"
+  ]
+}
