@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './Card'
+import Header from './Header'
 import Messi from '../images/messi.jpg'
 import Alisson from '../images/alisson.jpeg'
 import Belllingham from '../images/bellingham.jpg'
@@ -19,63 +20,78 @@ import Vinicius from '../images/vinicius.jpg_large'
 const players = [
   {
     src: Messi,
-    name: "Messi"
+    name: "Messi",
+    originalIndex: 0
   },
   {
     src: Alisson,
-    name: "Alisson"
+    name: "Alisson",
+    originalIndex: 1
   },
   {
     src: Belllingham,
-    name: "Bellingham"
+    name: "Bellingham",
+    originalIndex: 2
   },
   {
     src: Benzema,
-    name: "Benzema"
+    name: "Benzema",
+    originalIndex: 3
   },
   {
     src: DeBruyne,
-    name: "De Bruyne"
+    name: "De Bruyne",
+    originalIndex: 4
   },
   {
     src: Foden,
-    name: "Foden"
+    name: "Foden",
+    originalIndex: 5
   },
   {
     src: Haaland,
-    name: "Haaland"
+    name: "Haaland",
+    originalIndex: 6
   },
   {
     src: Mane,
-    name: "Mane"
+    name: "Mane",
+    originalIndex: 7
   },
   {
     src: Mbappe,
-    name: "Mbappe"
+    name: "Mbappe",
+    originalIndex: 8
   },
   {
     src: Modric,
-    name: "Modric"
+    name: "Modric",
+    originalIndex: 9
   },
   {
     src: Ronaldo,
-    name: "Ronaldo"
+    name: "Ronaldo",
+    originalIndex: 10
   },
   {
     src: Saka,
-    name: "Saka"
+    name: "Saka",
+    originalIndex: 11
   },
   {
     src: Salah,
-    name: "Salah"
+    name: "Salah",
+    originalIndex: 12
   },
   {
     src: VanDijk,
-    name: "Van Dijk"
+    name: "Van Dijk",
+    originalIndex: 13
   },
   {
     src: Vinicius,
-    name: "Vinicius Jr"
+    name: "Vinicius Jr",
+    originalIndex: 14
   },
 ]
 
@@ -94,11 +110,48 @@ function shuffleCards(){
 
 export default function Game() {
   const [cards, setCards] = useState(players)
+  const [score, setScore] = useState(0)
+  const [highScore, setHighScore] = useState(0)
+  const [clickedCards, setClickedCards] = useState([])
+  const [result, setResult] = useState("")
+
+  
+
+  function cardClickHandler(originalIndex){
+    setResult("")
+    if (clickedCards.includes(originalIndex)){
+      setResult("You Lose!")
+      setScore(0)
+      setClickedCards([])
+    }
+    else{
+      setClickedCards([...clickedCards, originalIndex])
+      setScore(score + 1)
+      if (score >= highScore){
+        setHighScore(highScore + 1)
+      }
+    }
+    
+    setCards(shuffleCards())
+  }
+
+  useEffect(() => {
+    if (score === 15){
+      setResult("Congratulations! You Win!")
+      setScore(0)
+      setClickedCards([])
+    }
+  }, [score])
+
   return (
+    <div className='container'>
+      <Header score={score} highScore={highScore} result={result}></Header>
     <div className='game'>
-      {cards.map((player, i) => {
-        return <Card imgSrc={player.src} name={player.name} key={i} onClick={() => setCards(shuffleCards())}></Card>
+      {cards.map((player) => {
+        return <Card imgSrc={player.src} name={player.name} key={player.originalIndex} onClick={(e) => cardClickHandler(player.originalIndex)} originalIndex={player.originalIndex}></Card>
       })}
     </div>
+    </div>
+    
   )
 }
